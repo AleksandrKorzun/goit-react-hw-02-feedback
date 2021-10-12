@@ -21,7 +21,7 @@ class Feedback extends Component {
 
     onLeaveFeedback = (e) => {
         const {name} = e.target
-        this.setState({[name]: this.state[name] + 1})
+        this.setState((prev) => ({[name]: prev[name] + 1}))
         this.countTotalFeedback()
     } 
     countTotalFeedback(good, neutral, bad) {

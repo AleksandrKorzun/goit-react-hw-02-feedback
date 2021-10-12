@@ -1,13 +1,13 @@
 import Button from '@material-ui/core/Button';
 
 
-const FeedbackOptions = ({onLeaveFeedback}) => {
+const FeedbackOptions = ({options, onLeaveFeedback}) => {
     
     return (
         <div>
-            <Button variant="contained" type="button" name="good" onClick={onLeaveFeedback} style={{backgroundColor: "green", marginRight: "10px"}}>Good</Button>
-            <Button variant="contained" type="button" name="neutral" onClick={onLeaveFeedback} style={{backgroundColor: "yellow", marginRight: "10px"}}>Neutral</Button>
-            <Button variant="contained" type="button" name="bad" onClick={onLeaveFeedback} style={{backgroundColor: "red"}}>Bad</Button>
+            {Object.keys(options).map((option)=>
+                <Button variant="contained" type="button" name={option} key={option} onClick={onLeaveFeedback} style={{backgroundColor: "green", marginRight: "10px"}}>{option}</Button>
+            )}
         </div>
     );
 }
